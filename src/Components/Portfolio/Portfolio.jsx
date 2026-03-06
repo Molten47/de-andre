@@ -39,8 +39,8 @@ const Portfolio = () => {
             imgSect: image9,
             description: 'Designed a high-conversion digital platform for The Rama Consult, a premier consulting firm based in Kigali, Rwanda. The project focused on communicating firm expertise and streamlining client engagement.',
             cta: 'View Prototype',
-            link: 'https://www.figma.com/proto/D5IxG9SHeyvz81wJIdfvSV/Farm-Management?page-id=0%3A1&node-id=99-573&viewport=-172%2C-395%2C0.29&t=rq3rcjBjdRxPRcKU-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=3%3A25&show-proto-sidebar=1',
-            category: 'Mobile Design',
+            link: 'https://www.figma.com/proto/FlophNZxR5RxqfMQs26hCA/RAMA-CONSULT?page-id=0%3A1&node-id=389-2009&t=4LJ25Io4b0YAK1bB-1&scaling=min-zoom&content-scaling=fixed',
+            category: 'Web Design',
             colors: {
                 title: 'text-[#B2420D]',
                 niche: 'text-[#1F2937]',
@@ -54,8 +54,8 @@ const Portfolio = () => {
             imgSect: image10,
             description: 'Designed an end-to-end digital solution for a Real Estate platform, bridging the gap between property listings (Rent, lease, buy) and user trust.',
             cta: 'View Prototype',
-            link: 'https://www.figma.com/proto/D5IxG9SHeyvz81wJIdfvSV/Farm-Management?page-id=0%3A1&node-id=99-573&viewport=-172%2C-395%2C0.29&t=rq3rcjBjdRxPRcKU-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=3%3A25&show-proto-sidebar=1',
-            category: 'Mobile Design',
+            link: "https://www.figma.com/proto/NSvZa8zVEU18Z0yJqX92c6/Real-Estate?page-id=0%3A1&node-id=72-1332&viewport=-2192%2C293%2C0.18&t=ba1tkl3rmMvhRH8p-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=208%3A1540",
+            category: 'Web Design',
             colors: {
                 title: 'text-[#0B7B83]',
                 niche: 'text-[#1f2937]',
@@ -69,7 +69,7 @@ const Portfolio = () => {
             imgSect: image2,
             description: 'Designed a MVP for farm management app within the agritech industry, focused on helping users manage livestock, monitor farm operations, and streamline daily tasks.',
             cta: 'View Prototype',
-            link: 'https://www.figma.com/proto/D5IxG9SHeyvz81wJIdfvSV/Farm-Management?page-id=0%3A1&node-id=99-573&viewport=-172%2C-395%2C0.29&t=rq3rcjBjdRxPRcKU-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=3%3A25&show-proto-sidebar=1',
+            link: "https://www.figma.com/proto/D5IxG9SHeyvz81wJIdfvSV/FarmWhiz?page-id=1219%3A6869&node-id=1309-2408&viewport=-269%2C30%2C0.2&t=xet8VnEddnZ8j2XO-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1575%3A1124",
             category: 'Mobile Design',
             colors: {
                 title: 'text-[#4caf50]',
