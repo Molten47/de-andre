@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import ProfileImage from '../../assets/2f025a6f9659f48af15c52d05257d11b.png'
+import ProfileImage from '../../assets/drey.jpeg'
 import ResumePDF from '../../assets/DEANDRE - RESUME 2026 (1).pdf'
 // Import framer motion
 import { motion } from 'framer-motion'
@@ -44,19 +44,19 @@ const About = () => {
             id: 1,
             bagIcon: <i className="material-symbols-outlined">trip</i>,
             title: 'Experience',
-            description: '3+ in UI/UX Design'
+            description: '3+ years in UI/UX Design'
         },
         {
             id: 2,
             bagIcon: <i className="material-symbols-outlined">lightbulb</i>,
             title: 'Projects',
-            description: '10+ live completed projects'
+            description: '10 live completed projects'
         },
         {
             id: 3,
             bagIcon: <i className="material-symbols-outlined">license</i>,
             title: 'Awards',
-            description: '1 Techie Award'
+            description: '1 Techie award'
         },
         {
             id: 4,
@@ -75,7 +75,7 @@ const About = () => {
         }
     ]
 
-  const paragraph1 = "Hi, I am a top notch UI/UX Designer. I don’t just draw interfaces; I build digital ecosystems that breathe. With over two years of experience, I transform complex problems into intuitive, high-performing user journeys across high-impact sectors including fintech, energy, E-commerce and Agriculture.";
+  const paragraph1 = "I am a Technical Product Designer with over three years of experience creating beautiful, functional, and user-centered digital experiences. My approach combines creativity with data-driven insights to design products that not only look great but perform exceptionally well.";
   
   const paragraph2 = "Backed by a professional certification from SQI College of ICT, I combine a data-informed approach with technical mastery to help startups and established enterprises scale. My expertise isn’t just in aesthetics; it’s in the full-stack design lifecycle: from User Research and Wireframing to High-Fidelity Prototyping and Scalable Design Systems. ";
 

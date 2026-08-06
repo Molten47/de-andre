@@ -7,15 +7,15 @@ const Testimonial = () => {
         {
             id: 1,
             comment: '"DeAndre\'s approach to design completely transformed our product. The user experience is intuitive and our customers love the new interface."',
-            userImage: 'BS',
-            name: 'Bello Samad',
+            userImage: 'BA',
+            name: 'Bello Abdulsamad',
             role: 'Founder, StartUp',
             organ: 'Innbode',
             rating: 5 // 5-star rating
         },
         {
             id: 2,
-            comment: '"Working with DeAndre was a game changer for our startup. The detail, expertise and attention to details is applaudable."',
+            comment: '"Working with DeAndre was a game changer for our startup. He is a detail expert. His attention to detail is applaudable."',
             userImage: 'FE',
             name: 'Feyi Eniola',
             role: 'Product Manager',
@@ -27,7 +27,7 @@ const Testimonial = () => {
             comment: '"DeAndre has an exceptional ability to translate complex requirements into beautiful, functional designs, and that has improved our user engagement."',
             userImage: 'DA',
             name: 'Daniel Adedokun',
-            role: 'Product Manager',
+            role: 'Technology Lead',
             organ: 'Zette Technologies',
             rating: 5 // 5-star rating
         }
