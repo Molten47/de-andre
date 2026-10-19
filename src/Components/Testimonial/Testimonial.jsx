@@ -16,10 +16,10 @@ const Testimonial = () => {
         {
             id: 2,
             comment: '"Working with DeAndre was a game changer for our startup. He is a detail expert. His attention to detail is applaudable."',
-            userImage: 'FE',
-            name: 'Feyi Eniola',
-            role: 'Product Manager',
-            organ: 'Olukowe',
+            userImage: 'UO',
+            name: 'Uche Otakpor',
+            role: 'C.E.O & Backend Dev.',
+            organ: 'Ursa Technologies Solutions.',
             rating: 5 // 5-star rating
         },
         {
@@ -135,7 +135,7 @@ const Testimonial = () => {
                         </motion.div>
                         
                         <div className='mb-6'>
-                            <div className='text-primary-navy text-paragraph text-lg mb-6 font-secondary'>
+                            <div className='text-primary-navy normal-font text-paragraph text-lg mb-6 font-secondary'>
                                 {item.comment}
                             </div>
                         </div>
@@ -144,9 +144,9 @@ const Testimonial = () => {
                             <p className='w-14 h-14 rounded-full object-cover border-none font-semibold leading-[32.02px] text-[1.5rem] flex items-center justify-center bg-[#052B7E] text-white'>{item.userImage}</p>
                            
                             <div className='ml-4 gap-3'>
-                                <h3 className='text-secondary font-secondary font-bold text-lg '>{item.name}</h3>
-                                <p className='text-paragraph font-secondary text-sm'>{item.role}</p>
-                                <p className='font-secondary text-sm text-[#ff9529]'>{item.organ}</p>
+                                <h3 className='text-secondary normal-font font-bold text-lg '>{item.name}</h3>
+                                <p className='text-paragraph normal-font text-sm'>{item.role}</p>
+                                <p className='normal-font text-sm text-[#ff9529]'>{item.organ}</p>
                             </div>
                         </div>
                     </motion.div>

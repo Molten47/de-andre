@@ -95,11 +95,11 @@ const Process = () => {
         </p>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 font-secondary md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16 max-w-6xl mx-auto">
         {processes.map((process, index) => (
           <motion.div 
             key={process.id}
-            className="bg-light rounded-xl shadow-lg px-8 py-12 flex flex-col items-start hover:shadow-xl transition-shadow duration-300"
+            className="bg-light rounded-xl shadow-lg font-secondary px-8 py-12 flex flex-col items-start hover:shadow-xl transition-shadow duration-300"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ 
               opacity: 1, 
@@ -137,7 +137,7 @@ const Process = () => {
                 <span className="material-icons">{process.iconName}</span>
               </motion.div>
               <motion.h3 
-                className="text-xl font-bold w-2/3 text-gray-800"
+                className="text-xl font-bold font-secondary w-2/3 text-gray-800"
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ 
                   opacity: 1, 
@@ -150,7 +150,7 @@ const Process = () => {
               </motion.h3>
             </div>
             <motion.p 
-              className="text-gray-600 text-sm"
+              className="text-gray-600 text-2em normal-font"
               initial={{ opacity: 0 }}
               whileInView={{ 
                 opacity: 1,

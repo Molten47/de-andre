@@ -91,9 +91,9 @@ const Contact = () => {
          delay:0.2,
          damping:10
                 }}
-        className='flex flex-col md:flex-row gap-6 mt-8 w-full max-w-7xl'>
+        className='flex flex-col md:flex-row gap-6 mt-8 w-full max-w-7xl font-secondary'>
             <div className='flex flex-col bg-[#F9FAFB] rounded-lg p-4 md:p-8 w-full md:w-[45rem] lg:w-[40%]'>
-                <h2 className='font-bold text-xl mb-8'>Contact Information</h2>
+                <h2 className='font-bold  text-xl mb-8'>Contact Information</h2>
                 
                 <div className='flex flex-col gap-6 mt-5'>
                     <div className='flex items-center gap-4'>
@@ -104,20 +104,20 @@ const Contact = () => {
                             </svg>
                         </div>
                         <div>
-                            <p className='font-medium text-sm'>Location</p>
+                            <p className='font-bold text-sm'>Location</p>
                             <p className='text-gray-600 text-sm'>Ikeja, Lagos State</p>
                         </div>
                     </div>
                     
-                    <div className='flex items-center gap-4'>
+                    <div className='flex items-center gap-4 font-secondary'>
                         <div className='bg-blue-100 p-3 rounded-lg'>
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                             </svg>
                         </div>
                         <div>
-                            <p className='font-medium text-sm'>Email</p>
-                            <p className='text-gray-600 text-sm'>alabioluwadamilare@gmail.com</p>
+                            <p className='font-bold text-sm'>Email</p>
+                            <p className='text-gray-600 text-sm'>alabioluwadamilare9@gmail.com</p>
                         </div>
                     </div>
                     
@@ -128,7 +128,7 @@ const Contact = () => {
                             </svg>
                         </div>
                         <div>
-                            <p className='font-medium text-sm'>Phone</p>
+                            <p className='font-bold text-sm'>Phone</p>
                             <p className='text-gray-600 text-sm'>08065084743</p>
                         </div>
                     </div>
@@ -169,7 +169,7 @@ const Contact = () => {
                     delay:0.2,
                     damping:10
                 }}
-            className='flex flex-col bg-[#Ffffff] rounded-lg p-6 md:p-8 w-full md:w-[80rem] lg:w-[60%]'>
+            className='flex flex-col bg-[#Ffffff] rounded-lg p-6 md:p-8 w-full md:w-[80rem] lg:w-[60%] normal-font '>
                 <form ref={form} onSubmit={sendEmail} className='w-full'>
                     <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mb-4'>
                         <div>

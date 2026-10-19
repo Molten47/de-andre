@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import ProfileImage from '../../assets/drey.jpeg'
-import ResumePDF from '../../assets/DEANDRE - RESUME 2026 (1).pdf'
+import ProfileImage from '../../assets/dami.png'
+import ResumePDF from '../../assets/DAMILARE ALABI (PD) (1).pdf'
 // Import framer motion
 import { motion } from 'framer-motion'
 
@@ -50,7 +50,7 @@ const About = () => {
             id: 2,
             bagIcon: <i className="material-symbols-outlined">lightbulb</i>,
             title: 'Projects',
-            description: '10 live completed projects'
+            description: '10+ live completed projects'
         },
         {
             id: 3,
@@ -75,7 +75,7 @@ const About = () => {
         }
     ]
 
-  const paragraph1 = "I am a Technical Product Designer with over three years of experience creating beautiful, functional, and user-centered digital experiences. My approach combines creativity with data-driven insights to design products that not only look great but perform exceptionally well.";
+  const paragraph1 = "Hi, I am a top notch UI/UX Designer. I don’t just draw interfaces; I build digital ecosystems that breathe. With over two years of experience, I transform complex problems into intuitive, high-performing user journeys across high-impact sectors including fintech, energy, E-commerce and Agriculture.";
   
   const paragraph2 = "Backed by a professional certification from SQI College of ICT, I combine a data-informed approach with technical mastery to help startups and established enterprises scale. My expertise isn’t just in aesthetics; it’s in the full-stack design lifecycle: from User Research and Wireframing to High-Fidelity Prototyping and Scalable Design Systems. ";
 
@@ -131,13 +131,13 @@ const About = () => {
               transition={{ duration: 0.7 }}
               viewport={{ once: true }}
             >
-              <div className="w-[90%] flex items-center justify-center md:items-start md:justify-start pt-4 sm:pt-10 md:pt-12 lg:pt-20">
-                <img 
-                  src={ProfileImage} 
-                  className="rounded-xl w-full object-center max-w-sm md:max-w-none h-auto object-cover shadow-md md:h-auto lg:h-[60vh]" 
-                  alt="Profile" 
-                />
-              </div>
+              <div className="w-full flex justify-center lg:justify-start px-4 pt-4 sm:pt-10 md:pt-12 lg:pt-[80px] lg:px-0 lg:pl-[18px]">
+              <img
+                src={ProfileImage}
+                alt="Profile"
+                className="w-full max-w-sm md:max-w-[510px] lg:w-[510px] aspect-[510/602] lg:h-[602px] rounded-[15px] object-cover object-center shadow-md"
+              />
+            </div>
             </motion.div>
 
             {/* Content section */}

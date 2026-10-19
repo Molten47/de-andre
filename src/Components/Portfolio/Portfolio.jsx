@@ -47,21 +47,7 @@ const Portfolio = () => {
                 cta: 'text-[#b2420d]'
             }
         },
-            {
-            id: 3,
-            title: 'Real Estate ',
-            niche: 'Real Estate ',
-            imgSect: image10,
-            description: 'Designed an end-to-end digital solution for a Real Estate platform, bridging the gap between property listings (Rent, lease, buy) and user trust.',
-            cta: 'View Prototype',
-            link: "https://www.figma.com/proto/NSvZa8zVEU18Z0yJqX92c6/Real-Estate?page-id=0%3A1&node-id=72-1332&viewport=-2192%2C293%2C0.18&t=ba1tkl3rmMvhRH8p-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=208%3A1540",
-            category: 'Web Design',
-            colors: {
-                title: 'text-[#0B7B83]',
-                niche: 'text-[#1f2937]',
-                cta: 'text-[#0B7B83]'
-            }
-        },
+
         {
             id: 4,
             title: 'Agriculture',
@@ -77,6 +63,22 @@ const Portfolio = () => {
                 cta: 'text-[#4caf50]'
             }
         },
+            {
+            id: 3,
+            title: 'Real Estate ',
+            niche: 'Real Estate ',
+            imgSect: image10,
+            description: 'Designed an end-to-end digital solution for a Real Estate platform, bridging the gap between property listings (Rent, lease, buy) and user trust.',
+            cta: 'View Prototype',
+            link: "https://www.figma.com/proto/NSvZa8zVEU18Z0yJqX92c6/Real-Estate?page-id=0%3A1&node-id=72-1332&viewport=-2192%2C293%2C0.18&t=ba1tkl3rmMvhRH8p-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=208%3A1540",
+            category: 'Web Design',
+            colors: {
+                title: 'text-[#0B7B83]',
+                niche: 'text-[#1f2937]',
+                cta: 'text-[#0B7B83]'
+            }
+        },
+
         {
             id: 5,
             title: 'E-Commerce',
@@ -289,7 +291,7 @@ const Portfolio = () => {
 
             {/* Filter Tabs (kept as is) */}
             <motion.div
-                className='flex flex-wrap justify-center gap-2.5 mt-8'
+                className='flex flex-wrap justify-center font-secondary gap-2.5 mt-8'
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"
@@ -297,7 +299,7 @@ const Portfolio = () => {
                 {filters.map((filter) => (
                     <motion.button
                         key={filter}
-                        className={`flex px-4 py-2 text-[0.9rem] md:text-[1rem] font-medium rounded-full justify-center items-center mb-2 cursor-pointer ${
+                        className={`flex px-4 py-2 text-[0.6rem] md:text-[1rem] font-medium rounded-full justify-center items-center mb-2 cursor-pointer ${
                             filter === activeFilter
                                 ? 'bg-primary-navy text-white'
                                 : 'bg-light-gray text-secondary hover:bg-gray-300 transition-colors'
@@ -317,12 +319,12 @@ const Portfolio = () => {
             <div
                 ref={scrollContainerRef}
                 // Apply scroll/snap classes ONLY if activeFilter is 'All Projects'
-                className={`flex mt-12 w-full max-w-[85rem] mx-auto
+                className={`flex font-secondary mt-12 w-full max-w-[85rem] mx-auto
                     ${activeFilter === 'All Projects' ? 'overflow-x-auto scrollbar-hide snap-x snap-mandatory' : 'justify-center'}`
                 }
             >
                  {/* Inner flex container - apply wrapping ONLY if filter is active */}
-                <div className={`flex gap-6 px-6 md:px-12 lg:px-16 ${activeFilter === 'All Projects' ? 'flex-nowrap' : 'flex-wrap'}`}>
+                <div className={`flex gap-6 px-4 md:px-12 lg:px-16 ${activeFilter === 'All Projects' ? 'flex-nowrap' : 'flex-wrap'}`}>
                     {/* Map over the filteredWorkSamples */}
                     {filteredWorkSamples.map((work, index) => (
                         <motion.div
