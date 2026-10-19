@@ -18,14 +18,17 @@ export const responsiveScale = {
   mobile: { distance: 0.32, size: 0.68 },
 }
 
+
 export const mediaQueries = {
   desktop: '(min-width: 1024px)',
   tablet: '(min-width: 640px) and (max-width: 1023px)',
   mobile: '(max-width: 639px)',
 }
 
-// Each leg (position[i] -> position[i+1]) gets an equal share of this.
-export const loopDurationSeconds = 30
+
+export const legSeconds = 2.5       // travel time per move
+export const holdSeconds = 4        // pause at each keyframe
+export const contentSwapAt = 0.3    // 0–1: how far into the move the text swaps
 export const loopEase = 'power3.inOut'
 
 export const floatAnimation = {
@@ -42,7 +45,7 @@ const mainContent = {
   align: 'center',
   title: 'Designed By DeAndre',
   subtitle: 'Where Creativity Runs Wild and Aesthetics Rule.',
-  cta: { label: 'Explore', href: 'https://www.behance.net/DeAndre', variant: 'filled' },
+  cta: { label: 'Explore', href: 'https://www.behance.net/DeAndre', variant: 'outline' },
 }
 
 const arContentLeft = {

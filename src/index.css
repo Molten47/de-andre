@@ -3,7 +3,11 @@
 :root {
  /* Font Family*/
   --font-primary: "Poppins", sans-serif;
-  --font-secondary: "Inter", sans-serif;
+  --font-secondary: "Plus Jakarta Sans", 'sans-serif';
+  --font-normal:"Inter", sans-serif;
+  
+
+
 
 /* Font Colors*/
 --primary-blue: #9CA3AF;
@@ -34,6 +38,7 @@ body {
   width: 100%;
 }
 @layer utilities{
+  /* bg-color variants*/
   .bg-primary {
     background-color: var(--primary-blue);
   }
@@ -46,40 +51,50 @@ body {
   .bg-primary-white {
     background-color: var(--primary-white);
   }
+  .bg-primary-navy{
+    background-color: var(--primary-bluee);
+  }
+
+  .bg-primary-lightblue{
+    background-color: var(--primary-blued);
+  }
+    .bg-light-gray{
+    background-color:var(--light-gray)
+  }
+  .bg-light{
+    background-color:var(--primary-blue)
+  }
+
+
+/* color(text) variants*/
   .text-primary {
     color: var(--primary-blue);
   }
   .text-secondary {
     color: var(--secondary-blue);
   }
+   .text-primary-blue {
+    color: var(--primary-blue);
+  }
+    .text-primary-navy{
+    color:var(--primary-bluee)
+  }
+    .text-primary-lightblue{
+    color: var(--primary-blued);
+  }
+  .text-paragraph{
+    color: var(--primary-para);
+  }
+
+  /*font variants*/
   .font-primary {
     font-family: var(--font-primary);
   }
   .font-secondary {
     font-family: var(--font-secondary);
   }
-  .text-primary-blue {
-    color: var(--primary-blue);
+  .normal-font {
+    font-family: var(--font-normal);
   }
-  .bg-primary-navy{
-    background-color: var(--primary-bluee);
-  }
-  .text-primary-navy{
-    color:var(--primary-bluee)
-  }
-  .bg-primary-lightblue{
-    background-color: var(--primary-blued);
-  }
-  .text-primary-lightblue{
-    color: var(--primary-blued);
-  }
-  .text-paragraph{
-    color: var(--primary-para);
-  }
-  .bg-light-gray{
-    background-color:var(--light-gray)
-  }
-  .bg-light{
-    background-color:var(--primary-blue)
-  }
+  
 }

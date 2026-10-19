@@ -6,16 +6,18 @@ import {
   earthPositions,
   responsiveScale,
   mediaQueries,
-  loopDurationSeconds,
   loopEase,
   floatAnimation,
   heroContent,
+  legSeconds,
+  holdSeconds,
+  contentSwapAt,
 } from './heroAnimation.config'
 
 const alignmentClasses = {
-  center: 'items-center text-center mx-auto',
-  left: 'items-center text-center md:items-start md:text-left md:mr-auto',
-  right: 'items-center text-center md:items-end md:text-right md:ml-auto',
+  center: 'items-center text-center',
+  left: 'items-center text-center md:items-start md:text-left',
+  right: 'items-center text-center md:items-end md:text-right',
 }
 
 const Hero = () => {
@@ -59,38 +61,61 @@ const Hero = () => {
         yPercent: -50,
         x: positions[0].x,
         y: positions[0].y,
-        scaleX: positions[0].scale,
+        scaleX: positions[0].flip ? -positions[0].scale : positions[0].scale,
         scaleY: positions[0].scale,
         rotation: positions[0].rotation,
       })
       setActiveIndex(0)
 
-      const legDuration = loopDurationSeconds / positions.length
       const timeline = gsap.timeline({ repeat: -1 })
 
       positions.forEach((_, index) => {
         const nextIndex = (index + 1) % positions.length
         const next = positions[nextIndex]
+        const label = `leg${index}`
 
-        timeline.to(earthWrapperRef.current, {
-          x: next.x,
-          y: next.y,
-          scaleX: next.flip ? -next.scale : next.scale,
-          scaleY: next.scale,
-          rotation: next.rotation,
-          duration: legDuration,
-          ease: loopEase,
-          onComplete: () => setActiveIndex(nextIndex),
-        })
-      })
+        // Hold at the current keyframe (index 0 = centered main content first)
+        timeline.addLabel(label, `+=${holdSeconds}`)
+
+        timeline.to(
+          earthWrapperRef.current,
+          {
+            x: next.x,
+            y: next.y,
+            scaleX: next.flip ? -next.scale : next.scale,
+            scaleY: next.scale,
+            rotation: next.rotation,
+            duration: legSeconds,
+            ease: loopEase,
+          },
+          label
+        )
+
+        // Swap content partway through the move
+        timeline.call(
+          () => setActiveIndex(nextIndex),
+          null,
+          `${label}+=${legSeconds * contentSwapAt}`
+        )
+      }) // end forEach
 
       return () => timeline.kill()
-    })
+    }) // end mm.add
 
     return () => mm.revert()
   }, [])
 
   const activeContent = heroContent[activeIndex]
+//Cta 0r button classes control
+const ctaBase =
+  'font-secondary font-medium leading-none flex items-center justify-center mt-2 ' +
+  'w-[clamp(9rem,13vw,12.5rem)] h-[clamp(2.5rem,3.1vw,2.95rem)] ' +
+  'text-[clamp(1rem,1.35vw,1.25rem)] rounded-[10px] transition-transform hover:scale-105'
+
+const ctaVariants = {
+  filled: 'bg-primary-white text-[#1b1b1b]',
+  outline: 'bg-transparent text-white border border-white',
+}
 
   return (
     <div
@@ -99,7 +124,8 @@ const Hero = () => {
     >
       {/* Content layer, positioned per active Earth keyframe */}
       <div className="w-full h-full flex items-center px-6 md:px-16 lg:px-24 z-10 relative pointer-events-none">
-        <div className="relative w-full md:w-1/2 min-h-[300px] sm:min-h-[280px] md:min-h-[300px] lg:min-h-[280px]">
+        {/* was: relative w-full md:w-1/2 min-h-[...] */}
+<div className="relative w-full min-h-[300px] sm:min-h-[320px] md:min-h-[360px] lg:min-h-[400px]">
           <AnimatePresence>
             <motion.div
               key={activeContent.id}
@@ -109,26 +135,28 @@ const Hero = () => {
               exit={{ opacity: 0, y: -16 }}
               transition={{ duration: 0.5, ease: 'easeInOut' }}
             >
-              {activeContent.title && (
-                <h1 className="font-secondary font-bold text-[3.9rem] md:text-5xl lg:text-6xl leading-tight">
-                  {activeContent.title}
-                </h1>
-              )}
-              <p className="font-secondary font-normal text-base md:text-lg lg:text-xl max-w-md">
-                {activeContent.subtitle}
-              </p>
-              <a
-                href={activeContent.cta.href}
-                target="_blank"
-                rel="noreferrer"
-                className={
-                  activeContent.cta.variant === 'filled'
-                    ? 'bg-primary-white text-[#1b1b1b] font-secondary leading-[100%] font-bold flex items-center text-sm md:text-base px-6 py-2 rounded-[10px] mt-2 w-fit transition-transform hover:scale-105'
-                    : 'bg-transparent text-white font-secondary leading-[100%] font-bold flex items-center text-sm md:text-base px-6 py-2 border-2 border-white rounded-[10px] mt-2 w-fit transition-transform hover:scale-105'
-                }
-              >
-                {activeContent.cta.label}
-              </a>
+           {activeContent.title && (
+              <h1 className="font-secondary font-bold text-[clamp(1.65rem,5vw,6.3rem)] leading-[1.05] whitespace-nowrap">
+                {activeContent.title}
+              </h1>
+            )}
+              <p
+              className={`font-secondary font-normal text-[clamp(1rem,2vw,1.75rem)] ${
+                activeContent.align === 'center'
+                  ? 'md:whitespace-nowrap max-w-none'
+                  : 'max-w-[22ch] md:max-w-lg text-balance'
+              }`}
+            >
+              {activeContent.subtitle}
+            </p>
+            <a
+            href={activeContent.cta.href}
+            target="_blank"
+            rel="noreferrer"
+            className={`${ctaBase} ${ctaVariants[activeContent.cta.variant]}`}
+          >
+            {activeContent.cta.label}
+          </a>
             </motion.div>
           </AnimatePresence>
         </div>

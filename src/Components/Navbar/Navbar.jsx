@@ -36,7 +36,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="flex justify-center relative w-full">
+      <div className="flex justify-center relative w-full font-secondary">
         <nav className='bg-black fixed z-20 rounded-b-lg shadow-md w-auto mx-auto px-6 md:px-12 py-4'>
           {/* Desktop Menu */}
           <div className="hidden md:block">

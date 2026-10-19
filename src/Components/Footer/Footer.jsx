@@ -10,7 +10,7 @@ const Footer = () => {
         
       };
   return (
-    <footer className="bg-gray-900 text-white py-12">
+    <footer className="bg-gray-900 text-white py-12 normal-font">
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Brand Section - Takes up more space on the left */}
@@ -72,7 +72,7 @@ const Footer = () => {
 
         {/* Bottom Section */}
         <div className="border-t border-gray-800 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm">© 2025 Portfolio. All rights reserved.</p>
+          <p className="text-gray-400 text-sm">© 2026 Portfolio. All rights reserved.</p>
           <p className="text-gray-400 text-sm mt-2 md:mt-0">Designed and built with ❤️</p>
         </div>
       </div>
