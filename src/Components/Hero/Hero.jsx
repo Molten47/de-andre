@@ -12,6 +12,10 @@ import {
   legSeconds,
   holdSeconds,
   contentSwapAt,
+  earthBaseWidthVw,
+  spinSeconds,
+  initialHoldSeconds
+  
 } from './heroAnimation.config'
 
 const alignmentClasses = {
@@ -24,6 +28,7 @@ const Hero = () => {
   const heroRef = useRef(null)
   const earthWrapperRef = useRef(null)
   const earthFloatRef = useRef(null)
+  const earthSpinRef = useRef(null)
   const [activeIndex, setActiveIndex] = useState(0)
 
   // Gentle continuous float, independent of the position/scale/rotation timeline below.
@@ -38,6 +43,18 @@ const Hero = () => {
 
     return () => floatTween.kill()
   }, [])
+// Spin Effect for the earth Image
+
+  useEffect(() => {
+  const spinTween = gsap.to(earthSpinRef.current, {
+    rotation: 360,
+    duration: spinSeconds,
+    ease: 'none',
+    repeat: -1,
+    transformOrigin: '50% 50%',
+  })
+  return () => spinTween.kill()
+}, [])
 
   // Main Earth movement loop: cycles through earthPositions and syncs hero content.
   useEffect(() => {
@@ -46,15 +63,24 @@ const Hero = () => {
     mm.add(mediaQueries, (context) => {
       const { desktop, tablet } = context.conditions
       const scaleKey = desktop ? 'desktop' : tablet ? 'tablet' : 'mobile'
-      const { distance, size } = responsiveScale[scaleKey]
+    const { distance, size } = responsiveScale[scaleKey]
+    const vw = window.innerWidth
+    const vh = window.innerHeight
 
-      const positions = earthPositions.map((position) => ({
-        x: position.x * distance,
-        y: position.y * distance,
-        scale: position.scale * size,
-        rotation: position.rotation,
-        flip: position.flip,
-      }))
+    const positions = earthPositions.map((position) => {
+    const diameter = vw * (earthBaseWidthVw / 100) * position.scale * size
+
+    return {
+      x: position.x * vw * distance,
+      // topVh pins the Earth's top edge; otherwise fall back to a plain y ratio
+      y: position.topVh !== undefined
+        ? (position.topVh - 0.5) * vh + diameter / 2
+        : position.y * vh * distance,
+      scale: position.scale * size,
+      rotation: position.rotation,
+      flip: position.flip,
+    }
+})
 
       gsap.set(earthWrapperRef.current, {
         xPercent: -50,
@@ -69,13 +95,15 @@ const Hero = () => {
 
       const timeline = gsap.timeline({ repeat: -1 })
 
+
       positions.forEach((_, index) => {
         const nextIndex = (index + 1) % positions.length
         const next = positions[nextIndex]
         const label = `leg${index}`
 
         // Hold at the current keyframe (index 0 = centered main content first)
-        timeline.addLabel(label, `+=${holdSeconds}`)
+       const hold = index === 0 ? initialHoldSeconds : holdSeconds
+      timeline.addLabel(label, `+=${hold}`)
 
         timeline.to(
           earthWrapperRef.current,
@@ -136,9 +164,9 @@ const ctaVariants = {
               transition={{ duration: 0.5, ease: 'easeInOut' }}
             >
            {activeContent.title && (
-              <h1 className="font-secondary font-bold text-[clamp(1.65rem,5vw,6.3rem)] leading-[1.05] whitespace-nowrap">
-                {activeContent.title}
-              </h1>
+             <h1 className="font-secondary font-bold md:font-medium text-[3.9rem] md:text-[clamp(2.5rem,7vw,7.5rem)] leading-[1.05]">
+              {activeContent.title}
+            </h1>
             )}
               <p
               className={`font-secondary font-normal text-[clamp(1rem,2vw,1.75rem)] ${
@@ -164,19 +192,21 @@ const ctaVariants = {
 
       {/* Earth: outer layer drives the GSAP position/scale/rotation/flip timeline,
           inner layer drives the independent floating bounce. */}
-      <div
+     <div
         ref={earthWrapperRef}
-        className="absolute left-1/2 top-1/2 w-[70vw] max-w-[760px] sm:w-[55vw] md:w-[48vw] lg:w-[42vw]"
-        style={{ willChange: 'transform' }}
+        className="absolute left-1/2 top-1/2"
+        style={{ width: `${earthBaseWidthVw}vw`, willChange: 'transform' }}
       >
-        <div ref={earthFloatRef} style={{ willChange: 'transform' }}>
-          <img
-            src={earthImage}
-            alt="Earth"
-            draggable="false"
-            className="w-full h-auto object-contain select-none pointer-events-none"
-          />
-        </div>
+     <div ref={earthFloatRef} style={{ willChange: 'transform' }}>
+    <div ref={earthSpinRef} style={{ willChange: 'transform' }}>
+      <img
+        src={earthImage}
+        alt="Earth"
+        draggable="false"
+        className="w-full h-auto object-contain select-none pointer-events-none"
+      />
+    </div>
+</div>
       </div>
     </div>
   )
