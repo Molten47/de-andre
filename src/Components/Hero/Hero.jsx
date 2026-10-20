@@ -14,7 +14,8 @@ import {
   contentSwapAt,
   earthBaseWidthVw,
   spinSeconds,
-  initialHoldSeconds
+  initialHoldSeconds,
+  earthDiscRatio,
   
 } from './heroAnimation.config'
 
@@ -67,19 +68,19 @@ const Hero = () => {
     const vw = window.innerWidth
     const vh = window.innerHeight
 
-    const positions = earthPositions.map((position) => {
-    const diameter = vw * (earthBaseWidthVw / 100) * position.scale * size
+  const positions = earthPositions.map((position) => {
+  const imageWidth = vw * (earthBaseWidthVw / 100) * position.scale * size
+  const discDiameter = imageWidth * earthDiscRatio
 
-    return {
-      x: position.x * vw * distance,
-      // topVh pins the Earth's top edge; otherwise fall back to a plain y ratio
-      y: position.topVh !== undefined
-        ? (position.topVh - 0.5) * vh + diameter / 2
-        : position.y * vh * distance,
-      scale: position.scale * size,
-      rotation: position.rotation,
-      flip: position.flip,
-    }
+  return {
+    x: position.x * vw * distance,
+    y: position.topVh !== undefined
+      ? (position.topVh - 0.5) * vh + discDiameter / 2
+      : position.y * vh * distance,
+    scale: position.scale * size,
+    rotation: position.rotation,
+    flip: position.flip,
+  }
 })
 
       gsap.set(earthWrapperRef.current, {
@@ -197,7 +198,7 @@ const ctaVariants = {
         className="absolute left-1/2 top-1/2"
         style={{ width: `${earthBaseWidthVw}vw`, willChange: 'transform' }}
       >
-     <div ref={earthFloatRef} style={{ willChange: 'transform' }}>
+    <div ref={earthFloatRef} style={{ willChange: 'transform' }}>
     <div ref={earthSpinRef} style={{ willChange: 'transform' }}>
       <img
         src={earthImage}
@@ -206,8 +207,8 @@ const ctaVariants = {
         className="w-full h-auto object-contain select-none pointer-events-none"
       />
     </div>
-</div>
-      </div>
+  </div>
+  </div>
     </div>
   )
 }
