@@ -3,12 +3,13 @@
 // Base (desktop) keyframes for the Earth. The loop visits these in order and
 // wraps back to index 0, so index 0 doubles as both the start and end state
 // scale = Earth diameter as a fraction of viewport width (with earthBaseWidthVw = 100).
-export const earthBaseWidthVw = 100
+export const earthBaseWidthVw = 135   // image box = 135vw so the globe itself comes out ~100vw
+export const earthDiscRatio = 0.74    // globe diameter ÷ image width (the JPG's black margin)
 
 export const earthPositions = [
-  { x: 0,     y: 0.21, scale: 0.48, rotation: 0, flip: false }, // 0: large, centered, spinning
-  { x: -0.44, y: 0.10, scale: 0.75, rotation: 0, flip: false }, // 1: left, text on right
-  { x: 0.28,  y: 0.16, scale: 0.74, rotation: 0, flip: false }, // 2: right, text on left
+  { x: 0,     topVh: 0.52, scale: 0.73, rotation: 0, flip: false }, // large centered, top edge at 52% of height
+  { x: -0.44, y: 0.10,     scale: 0.75, rotation: 0, flip: false }, // left
+  { x: 0.28,  y: 0.16,     scale: 0.74, rotation: 0, flip: false }, // right
 ]
 
 export const spinSeconds = 36         // one full turn; lower = faster
