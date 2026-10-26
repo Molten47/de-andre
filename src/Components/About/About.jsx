@@ -122,7 +122,7 @@ const About = () => {
 
         {/* Main content section */}
         <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 pb-12 sm:pb-16 md:pb-24">
-          <div className="flex flex-col md:flex-row md:gap-8 lg:gap-14">
+          <div className="flex flex-col md:flex-row md:gap-9 lg:gap-18">
             {/* Profile image section - Fixed centering on mobile */}
             <motion.div 
               className="w-full md:w-[40%] mb-8 md:mb-0 flex justify-center md:block"

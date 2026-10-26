@@ -32,14 +32,14 @@ export const mediaQueries = {
 }
 
 
-export const legSeconds = 2.5       // travel time per move
-export const holdSeconds = 4        // pause at each keyframe
+export const legSeconds = 1.3       // travel time per move
+export const holdSeconds = 2        // pause at each keyframe
 export const contentSwapAt = 0.3    // 0–1: how far into the move the text swaps
 export const loopEase = 'power3.inOut'
 
 export const floatAnimation = {
   distance: 8, // px, up/down
-  duration: 2.4,
+  duration: 2.1,
   ease: 'sine.inOut',
 }
 
