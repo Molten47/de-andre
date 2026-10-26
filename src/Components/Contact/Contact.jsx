@@ -54,7 +54,7 @@ const Contact = () => {
   };
 
   return (
-    <div className='flex flex-col relative min-h-[80vh] w-full items-center bg-[#FFFFFF] overflow-hidden px-4 md:px-6 lg:px-8 pb-16'>
+    <div className='flex flex-col relative min-h-[70vh] w-full items-center bg-[#FFFFFF] overflow-hidden px-4 md:px-6 lg:px-8 pb-16'>
         <div className='flex flex-col items-center font-secondary justify-center pt-16 gap-4 max-w-3xl text-center'>
                 <motion.h1 
                 initial={{opacity:0, y:100}}
