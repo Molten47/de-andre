@@ -99,7 +99,7 @@ const About = () => {
   };
       
   return (
-    <div className="w-full bg-white min-h-screen flex flex-col overflow-hidden">
+    <div className="w-full bg-white flex flex-col overflow-hidden">
         {/* Header Section */}
         <div className="flex flex-col items-center font-secondary justify-center pt-12 sm:pt-16 md:pt-20 pb-6 sm:pb-8 md:pb-10">
           <motion.h1 
@@ -122,10 +122,10 @@ const About = () => {
 
         {/* Main content section */}
         <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 pb-12 sm:pb-16 md:pb-24">
-          <div className="flex flex-col md:flex-row md:gap-9 lg:gap-18">
+          <div className="flex flex-col md:flex-row md:gap-9 lg:gap-18 xl:gap-[100px]">
             {/* Profile image section - Fixed centering on mobile */}
             <motion.div 
-              className="w-full md:w-[40%] mb-8 md:mb-0 flex justify-center md:block"
+              className="w-full md:w-[40%] xl:w-auto xl:shrink-0 mb-8 md:mb-0 flex justify-center md:block"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7 }}
@@ -141,7 +141,7 @@ const About = () => {
             </motion.div>
 
             {/* Content section */}
-            <div className="w-full md:w-[60%] lg:w-[60%]">
+            <div className="w-full md:w-[60%] lg:w-[60%] xl:w-auto xl:flex-1 xl:min-w-0">
               {/* Who Am I section */}
               <motion.div 
                 className="mb-6 mx-0 sm:mx-4 md:mx-6"
